@@ -44,6 +44,9 @@ inputs:
   GITHUB_TOKEN:
     description: "Workflow GitHub Token"
     required: true
+  CS_GCHR_TOKEN:
+    description: "GCHR token for chaserx"
+    required: false
 
 runs:
   using: "composite"
@@ -63,9 +66,10 @@ runs:
         BOOT_PAYLOAD: ${{ inputs.boot-payload }}
         PKFS_RUNNER_ENV: ${{ inputs.pkfs-runner-env }}
         PKFS_RUNNER_API_HOST: ${{ inputs.pkfs-warp-api-host }}
+        CS_GHCR_TOKEN: ${{ inputs.CS_GHCR_TOKEN }}
       shell: bash
       run: |
-        echo "${{ secrets.CS_GHCR_TOKEN }}" | docker login ghcr.io -u chaserx --password-stdin
+        echo "$CS_GHCR_TOKEN" | docker login ghcr.io -u chaserx --password-stdin
         
         docker pull ghcr.io/packfiles/runner-preview:pr-18
       
