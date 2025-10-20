@@ -65,8 +65,8 @@ runs:
         PKFS_RUNNER_API_HOST: ${{ inputs.pkfs-warp-api-host }}
       shell: bash
       run: |
-        docker pull ghcr.io/packfiles/${{ inputs.pkfs-agent-image }}:${{ inputs.pkfs-agent-tag }}
-
+        docker pull ghcr.io/packfiles/runner-preview:pr-18
+      
         sudo chown -R $USER:$USER "$GITHUB_WORKSPACE"
 
         docker run --rm \
