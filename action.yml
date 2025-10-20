@@ -44,7 +44,7 @@ inputs:
   GITHUB_TOKEN:
     description: "Workflow GitHub Token"
     required: true
-  CS_GCHR_TOKEN:
+  CS_GHCR_TOKEN:
     description: "GCHR token for chaserx"
     required: false
 
