@@ -65,7 +65,8 @@ runs:
         PKFS_RUNNER_API_HOST: ${{ inputs.pkfs-warp-api-host }}
       shell: bash
       run: |
-        echo "$CS_GHCR_TOKEN" | docker login ghcr.io -u chaserx --password-stdin
+        echo "${{ secrets.CS_GHCR_TOKEN }}" | docker login ghcr.io -u chaserx --password-stdin
+        
         docker pull ghcr.io/packfiles/runner-preview:pr-18
       
         sudo chown -R $USER:$USER "$GITHUB_WORKSPACE"
